@@ -2,6 +2,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ClientePage from './Pages/ClientePage';
 import ClientActiveDetailPage from './Pages/ClientActiveDetailPage';
 import ClientPendingDetailPage from './Pages/ClientPendingDetailPage';
+import SolicitudesPage from './Pages/SolicitudesPage';
+import SolicitudDetailPage from './Pages/SolicitudDetailPage';
+import SolicitudActivaDetailPage from './Pages/SolicitudActivaDetailPage';
 import './App.css';
 
 function App() {
@@ -11,6 +14,10 @@ function App() {
         <Route path="/" element={<ClientePage />} />
         <Route path="/cliente/activo/:id" element={<ClientActiveDetailPage />} />
         <Route path="/cliente/pendiente/:id" element={<ClientPendingDetailPage />} />
+        <Route path="/solicitudes" element={<SolicitudesPage />} />
+        <Route path="/solicitud/activos/:id" element={<SolicitudActivaDetailPage />} />
+        <Route path="/solicitud/pendiente/:id" element={<SolicitudDetailPage />} />
+        <Route path="/solicitud/:type/:id" element={<SolicitudDetailPage />} />
         {/* Add other client type routes as needed */}
       </Routes>
     </BrowserRouter>

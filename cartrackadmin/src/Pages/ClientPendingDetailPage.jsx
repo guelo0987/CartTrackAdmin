@@ -2,7 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Sidebar from '../Components/sidebar';
 import MainCard from '../Components/main_card';
 import { ArrowLeft, Edit, Eye, Info } from 'lucide-react';
-import { getClientTabs } from '../Components/TabsCliente';
+import { GetTabs } from '../Components/TabsHeader';
 import { useState } from 'react';
 import VehicleDetailModal from '../Components/VehicleDetailModal';
 import DenyDetailModal from '../Components/DenyDetailModal';
@@ -20,7 +20,7 @@ const ClientPendingDetailPage = () => {
     suspendidos: 0
   });
 
-  const clientTabs = getClientTabs(tabCounts);
+  const clientTabs = GetTabs(tabCounts, "Clientes");
 
   const clientData = {
     nombre: "Rafael Rivas",

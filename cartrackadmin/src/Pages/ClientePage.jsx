@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Sidebar from '../Components/sidebar';
 import MainCard from '../Components/main_card';
 import ClientTable from '../Components/ClientTable';
-import { getClientTabs } from '../Components/TabsCliente';
+import { GetTabs } from '../Components/TabsHeader';
 
 const ClientePage = () => {
   const [currentTab, setCurrentTab] = useState('activos');
@@ -62,7 +62,7 @@ const ClientePage = () => {
     });
   }, [clientData]);
 
-  const clientTabs = getClientTabs(tabCounts);
+  const clientTabs = GetTabs(tabCounts, "Clientes");
 
   const handleTabChange = (value) => {
     setCurrentTab(value.toLowerCase());

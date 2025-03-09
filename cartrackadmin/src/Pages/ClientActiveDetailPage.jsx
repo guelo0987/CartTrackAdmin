@@ -2,7 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Sidebar from '../Components/sidebar';
 import MainCard from '../Components/main_card';
 import { ArrowLeft, Edit, Eye, Info } from 'lucide-react';
-import { getClientTabs } from '../Components/TabsCliente';
+import { GetTabs } from '../Components/TabsHeader';
 import { useState } from 'react';
 import VehicleDetailModal from '../Components/VehicleDetailModal';
 
@@ -19,7 +19,7 @@ const ClientActiveDetailPage = () => {
   });
 
   // Get the shared tabs configuration
-  const clientTabs = getClientTabs(tabCounts);
+  const clientTabs = GetTabs(tabCounts, "Clientes");
 
   // Mock data - replace with actual data fetching
   const clientData = {

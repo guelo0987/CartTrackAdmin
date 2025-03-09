@@ -33,7 +33,7 @@ const ClientTable = ({ data, currentTab }) => {
   return (
     <div className="mt-8">
       {/* Table Headers */}
-      <div className="flex mb-4 px-4 sticky top-0 bg-[#F2F2F2] py-2 z-10">
+      <div className="flex mb-4 px-4 sticky top-0 bg-[##F9FBFC] py-2 z-10">
         <div className="w-1/3">
           <h3 className="text-[#0500C6] font-semibold text-sm">Nombre</h3>
         </div>
