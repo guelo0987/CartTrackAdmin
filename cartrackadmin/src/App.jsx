@@ -7,6 +7,7 @@ import SolicitudDetailPage from './Pages/SolicitudDetailPage';
 import SolicitudActivaDetailPage from './Pages/SolicitudActivaDetailPage';
 import ServiciosPage from './Pages/ServiciosPage';
 import HistorialPage from './Pages/HistorialPage';
+import TalleresPage from './Pages/TalleresPage';
 import './App.css';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/solicitud/:type/:id" element={<SolicitudDetailPage />} />
         <Route path="/servicios" element={<ServiciosPage />} />
         <Route path="/historial" element={<HistorialPage />} />
+        <Route path="/talleres" element={<TalleresPage />} />
         {/* Add other client type routes as needed */}
       </Routes>
     </BrowserRouter>

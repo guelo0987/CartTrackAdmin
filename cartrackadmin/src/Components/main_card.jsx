@@ -3,7 +3,7 @@ import Header from './header'
 
 const MainCard = ({ children, title, tabs, onTabChange, activeTab }) => {
   return (
-    <div className="absolute w-[90%] h-[85vh] left-[50%] top-[120px] transform -translate-x-[45%] bg-[#F2F2F2] rounded-[20px] p-8 
+    <div className="absolute w-[90%] h-[85vh] left-[50%] top-[120px] transform -translate-x-[45%] bg-[#f3f8fb] rounded-[20px] p-8 
       lg:w-[80%] lg:left-[40%] 
       md:w-[75%] md:left-[60%] 
       sm:w-[70%] sm:left-[62%]
