@@ -5,6 +5,8 @@ import ClientPendingDetailPage from './Pages/ClientPendingDetailPage';
 import SolicitudesPage from './Pages/SolicitudesPage';
 import SolicitudDetailPage from './Pages/SolicitudDetailPage';
 import SolicitudActivaDetailPage from './Pages/SolicitudActivaDetailPage';
+import ServiciosPage from './Pages/ServiciosPage';
+import HistorialPage from './Pages/HistorialPage';
 import './App.css';
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
         <Route path="/solicitud/activos/:id" element={<SolicitudActivaDetailPage />} />
         <Route path="/solicitud/pendiente/:id" element={<SolicitudDetailPage />} />
         <Route path="/solicitud/:type/:id" element={<SolicitudDetailPage />} />
+        <Route path="/servicios" element={<ServiciosPage />} />
+        <Route path="/historial" element={<HistorialPage />} />
         {/* Add other client type routes as needed */}
       </Routes>
     </BrowserRouter>
