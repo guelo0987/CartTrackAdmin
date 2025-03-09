@@ -1,11 +1,22 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Sidebar from '../Components/sidebar';
 import MainCard from '../Components/main_card';
 import ClientTable from '../Components/ClientTable';
 import { GetTabs } from '../Components/TabsHeader';
 
 const ClientePage = () => {
+  const location = useLocation();
   const [currentTab, setCurrentTab] = useState('activos');
+  
+  // Determinar el tab activo basado en la última navegación
+  useEffect(() => {
+    // Si venimos de una página de detalle, intentamos extraer el tipo
+    if (location.state && location.state.fromTab) {
+      setCurrentTab(location.state.fromTab);
+    }
+  }, [location]);
+  
   const [clientData, setClientData] = useState({
     activos: [
       { id: 1, nombre: 'Manuel Vargas', vehiculo: 'Mercedes Benz GLE 63 S', notifications: 1 },
@@ -75,7 +86,7 @@ const ClientePage = () => {
       <Sidebar />
       <div className="flex-1 relative">
         <h1 className="text-3xl text-[#0500C6] px-10 py-10 font-bold">Dashboard Administrativo</h1>
-        <MainCard title="Clientes" tabs={clientTabs} onTabChange={handleTabChange}>
+        <MainCard title="Clientes" tabs={clientTabs} onTabChange={handleTabChange} activeTab={currentTab}>
           <ClientTable 
             data={clientData[currentTab]} 
             currentTab={currentTab}

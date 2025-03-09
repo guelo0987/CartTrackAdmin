@@ -1,7 +1,7 @@
 import * as Tabs from '@radix-ui/react-tabs';
 import Header from './header'
 
-const MainCard = ({ children, title, tabs, onTabChange }) => {
+const MainCard = ({ children, title, tabs, onTabChange, activeTab }) => {
   return (
     <div className="absolute w-[90%] h-[85vh] left-[50%] top-[120px] transform -translate-x-[45%] bg-[#F2F2F2] rounded-[20px] p-8 
       lg:w-[80%] lg:left-[40%] 
@@ -13,7 +13,8 @@ const MainCard = ({ children, title, tabs, onTabChange }) => {
         
         {tabs && tabs.length > 0 && (
           <Tabs.Root 
-            defaultValue={tabs[0].label.toLowerCase()} 
+            defaultValue={activeTab || tabs[0].label.toLowerCase()} 
+            value={activeTab}
             onValueChange={onTabChange}
           >
             <Tabs.List className="flex gap-4">

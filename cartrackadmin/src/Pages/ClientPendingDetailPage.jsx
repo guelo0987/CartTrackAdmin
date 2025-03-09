@@ -1,17 +1,39 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import Sidebar from '../Components/sidebar';
 import MainCard from '../Components/main_card';
 import { ArrowLeft, Edit, Eye, Info } from 'lucide-react';
 import { GetTabs } from '../Components/TabsHeader';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import VehicleDetailModal from '../Components/VehicleDetailModal';
 import DenyDetailModal from '../Components/DenyDetailModal';
 
 const ClientPendingDetailPage = () => {
   const navigate = useNavigate();
   const { id } = useParams();
+  const location = useLocation();
   const [selectedVehicle, setSelectedVehicle] = useState(null);
   const [showDenyModal, setShowDenyModal] = useState(false);
+  
+  // Determinar el tipo de cliente basado en la URL
+  const [activeTab, setActiveTab] = useState('pendientes');
+  
+  useEffect(() => {
+    // Extraer el tipo de la URL (activo, pendiente, cancelado, suspendido)
+    const pathParts = location.pathname.split('/');
+    const typeIndex = pathParts.findIndex(part => 
+      ['activo', 'pendiente', 'cancelado', 'suspendido'].includes(part)
+    );
+    
+    if (typeIndex !== -1) {
+      let tabType = pathParts[typeIndex];
+      // Convertir singular a plural para que coincida con los nombres de los tabs
+      if (tabType === 'activo') tabType = 'activos';
+      if (tabType === 'pendiente') tabType = 'pendientes';
+      if (tabType === 'cancelado') tabType = 'cancelados';
+      if (tabType === 'suspendido') tabType = 'suspendidos';
+      setActiveTab(tabType);
+    }
+  }, [location]);
 
   const [tabCounts, setTabCounts] = useState({
     activos: 10,
@@ -58,7 +80,7 @@ const ClientPendingDetailPage = () => {
       <Sidebar />
       <div className="flex-1 relative">
         <h1 className="text-3xl text-[#0500C6] px-10 py-10 font-bold">Dashboard Administrativo</h1>
-        <MainCard title="Clientes" tabs={clientTabs} onTabChange={handleTabChange}>
+        <MainCard title="Clientes" tabs={clientTabs} onTabChange={handleTabChange} activeTab={activeTab}>
           <div className="relative">
             {/* Back button */}
             <button 

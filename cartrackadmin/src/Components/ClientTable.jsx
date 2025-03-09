@@ -14,19 +14,19 @@ const ClientTable = ({ data, currentTab }) => {
   const handleRowClick = (item) => {
     switch(currentTab) {
       case 'pendientes':
-        navigate(`/cliente/pendiente/${item.id}`);
+        navigate(`/cliente/pendiente/${item.id}`, { state: { fromTab: currentTab } });
         break;
       case 'activos':
-        navigate(`/cliente/activo/${item.id}`);
+        navigate(`/cliente/activo/${item.id}`, { state: { fromTab: currentTab } });
         break;
       case 'suspendidos':
-        navigate(`/cliente/suspendido/${item.id}`);
+        navigate(`/cliente/suspendido/${item.id}`, { state: { fromTab: currentTab } });
         break;
       case 'cancelados':
-        navigate(`/cliente/cancelado/${item.id}`);
+        navigate(`/cliente/cancelado/${item.id}`, { state: { fromTab: currentTab } });
         break;
       default:
-        navigate(`/cliente/activo/${item.id}`);
+        navigate(`/cliente/activo/${item.id}`, { state: { fromTab: 'activos' } });
     }
   };
 
