@@ -60,7 +60,7 @@ const HistorialPage = () => {
         <MainCard title="Historial">
           <div className="relative px-6">
             {/* Encabezados de columnas */}
-            <div className="sticky top-0 bg-[#F2F2F2] py-4 z-10 grid grid-cols-4 font-mundial font-semibold text-[14px] text-[#0500C6]">
+            <div className="sticky top-0  py-4 z-10 grid grid-cols-4 font-mundial font-semibold text-[14px] text-[#0500C6]">
               <span>Cliente</span>
               <span>Tipo</span>
               <span>Vehículo</span>

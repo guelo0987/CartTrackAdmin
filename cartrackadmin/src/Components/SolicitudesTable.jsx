@@ -23,7 +23,7 @@ const SolicitudesTable = ({ data, currentTab }) => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full lg:w-[130%] transition-all duration-300">
       <div className="grid grid-cols-4 gap-4 text-[#0500C6] font-semibold mb-4">
         <div>Cliente</div>
         <div>Tipo</div>
@@ -35,9 +35,9 @@ const SolicitudesTable = ({ data, currentTab }) => {
           key={item.id} 
           className="grid grid-cols-4 gap-4 py-4 border-b border-gray-200"
         >
-          <div>{item.cliente}</div>
-          <div>{item.tipo}</div>
-          <div>{item.vehiculo}</div>
+          <div className="overflow-hidden text-ellipsis whitespace-nowrap">{item.cliente}</div>
+          <div className="overflow-hidden text-ellipsis whitespace-nowrap">{item.tipo}</div>
+          <div className="overflow-hidden text-ellipsis whitespace-nowrap">{item.vehiculo}</div>
           <div className="text-right">
             <Eye 
               className="inline-block cursor-pointer text-[#0500C6]" 

@@ -5,7 +5,7 @@ const MainCard = ({ children, title, tabs, onTabChange, activeTab }) => {
   return (
     <div className="absolute w-[90%] h-[85vh] left-[50%] top-[120px] transform -translate-x-[45%] bg-[#f3f8fb] rounded-[20px] p-8 
       lg:w-[80%] lg:left-[40%] 
-      md:w-[75%] md:left-[60%] 
+      md:w-[75%] md:left-[40%] 
       sm:w-[70%] sm:left-[62%]
       xs:w-[85%] xs:left-[58%]">
       <div className="flex flex-row justify-between items-center mb-6">
